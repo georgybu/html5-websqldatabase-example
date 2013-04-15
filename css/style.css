@@ -220,7 +220,7 @@ footer {
     height: 24px;
 }
 
-.stitched.green {
+.stitched.greenArea {
     background-color: lightgreen;
     box-shadow: 0 0 0 4px lightgreen, 2px 1px 6px 4px rgba(10, 10, 0, 0.5);
 }

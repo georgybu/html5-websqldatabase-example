@@ -8,37 +8,36 @@ window.ImageManager = window.ImageManager || {};
 
 ImageManager.ddHelper = {
 
-    dragEnter: function(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
+    toggleDropAreaColor: function(setActive) {
         var dropArea = $(".dropArea");
-        if (!dropArea.hasClass('green')) {
-            dropArea.addClass('green');
+        var activeClassName = "greenArea";
+
+        if (setActive) {
+            if (!dropArea.hasClass(activeClassName))
+                dropArea.addClass(activeClassName);
+        } else {
+            if (dropArea.hasClass(activeClassName))
+                dropArea.removeClass(activeClassName);
         }
+    },
+
+    dragEnter: function(evt) {
+        evt.stopPropagation(); evt.preventDefault();
+        ImageManager.ddHelper.toggleDropAreaColor(true);
     },
 
     dragExit: function(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        var dropArea = $(".dropArea");
-        if (dropArea.hasClass('green')) {
-            dropArea.removeClass('green');
-        }
+        evt.stopPropagation(); evt.preventDefault();
+        ImageManager.ddHelper.toggleDropAreaColor(false);
     },
 
     dragLeave: function(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-        var dropArea = $(".dropArea");
-        if (dropArea.hasClass('green')) {
-            dropArea.removeClass('green');
-        }
+        evt.stopPropagation(); evt.preventDefault();
+        ImageManager.ddHelper.toggleDropAreaColor(false);
     },
 
     dragOver: function(evt) {
-        evt.stopPropagation();
-        evt.preventDefault();
-
+        evt.stopPropagation(); evt.preventDefault();
     },
 
     drop: function(evt) {
@@ -52,26 +51,20 @@ ImageManager.ddHelper = {
 
         if (evt.dataTransfer != undefined) {
             var files = evt.dataTransfer.files || evt.dataTransfer;
-            var count = files.length;
-            if (count > 0) that.handleFiles(files);
+            if (files.length > 0) that.handleFiles(files);
         }
-
-        var dropArea = $(".dropArea");
-        if (dropArea.hasClass('green')) {
-            dropArea.removeClass('green');
-        }
+        ImageManager.ddHelper.toggleDropAreaColor(false);
     },
 
     handleFiles: function (files) {
         var that = ImageManager.ddHelper;
 
         for (var i = 0; i < files.length; i++) {
-            var file = files[i];
             var reader = new FileReader();
-            reader.CustomFileName = file.name;
+            reader.CustomFileName = files[i].name;
             reader.onprogress = that.handleReaderProgress;
             reader.onloadend = that.handleReaderLoadEnd;
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(files[i]);
         }
     },
 
