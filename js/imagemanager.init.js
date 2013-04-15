@@ -10,10 +10,10 @@ $(document).ready(function() {
 
     $(".dropArea").each(function(i,e) {
         e.addEventListener("dragenter", ImageManager.ddHelper.dragEnter, false);
-        e.addEventListener("dragexit", ImageManager.ddHelper.dragExit, false);
-        e.addEventListener("dragover", ImageManager.ddHelper.dragOver, false);
-        e.addEventListener("drop", ImageManager.ddHelper.drop, false);
+        e.addEventListener("dragover",  ImageManager.ddHelper.dragOver, false);
+        e.addEventListener("dragexit",  ImageManager.ddHelper.dragLeave, false);
         e.addEventListener("dragleave", ImageManager.ddHelper.dragLeave, false);
+        e.addEventListener("drop", ImageManager.ddHelper.drop, false);
     });
 
     document.body.addEventListener("drop", ImageManager.ddHelper.drop, false);

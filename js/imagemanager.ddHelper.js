@@ -26,11 +26,6 @@ ImageManager.ddHelper = {
         ImageManager.ddHelper.toggleDropAreaColor(true);
     },
 
-    dragExit: function(evt) {
-        evt.stopPropagation(); evt.preventDefault();
-        ImageManager.ddHelper.toggleDropAreaColor(false);
-    },
-
     dragLeave: function(evt) {
         evt.stopPropagation(); evt.preventDefault();
         ImageManager.ddHelper.toggleDropAreaColor(false);
