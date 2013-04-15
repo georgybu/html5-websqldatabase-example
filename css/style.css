@@ -32,6 +32,7 @@ body > header h1 {
 }
 
 /* container */
+
 body > section {
     width: 94%;
     margin: 0 auto;
@@ -41,7 +42,6 @@ body > section {
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
 }
 
 body > section aside,
@@ -97,6 +97,7 @@ body > section section h2 {
     display: inline-block;
     position: relative;
     vertical-align: top;
+    padding: 0 0 6px;
 }
 
 #images li a.img {
