@@ -50,28 +50,8 @@ $(document).ready(function() {
             ImageManager.dbHelper.GetImages(true);
         }
     });
-
-    document.addEventListener("message", function(e){
-        console.log("receive:");
-        console.log(e.domain);
-        console.log(e.data);
-        /*
-        document.getElementById("test").textContent =
-            e.domain + " said: " + e.data;
-        */
-    }, false);
-
-    //postMessage( { action: 'send' } );
-    var messageToSend = {
-        jsonrpc: "2.0",
-        result: ""
-    };
-    window.parent.postMessage(JSON.stringify(messageToSend), "file://");
-
 });
 
 // public aliases
 window.DelImg = ImageManager.dbHelper.RemoveImage;
 window.FavImg = ImageManager.dbHelper.ToggleFavorite;
-
-//window.postMessage = window.postMessage || function() {};
