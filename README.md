@@ -3,6 +3,8 @@ html5-websqldatabase-example
 
 HTML5 Web SQL Database and HTML5 Drag\Drop Examples. 
 
+see: [http://georgybu.github.io/html5-websqldatabase-example/ImageManager.html](Live demo)
+
 List of browser support:
 ------------------------
 
